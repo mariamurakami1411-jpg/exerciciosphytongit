@@ -1,0 +1,16 @@
+def vermelho():
+    return '\033[0;31m'
+def reset():
+    return '\033[m'
+def verde():
+    return '\033[0;32m'
+def amarelo():
+    return '\033[0;33m'
+def azul():
+    return '\033[0;34m'
+def roxo():
+    return '\033[0;35m'
+def ciano():
+    return '\033[0;36m'
+def cinza():
+    return '\033[0;37m'

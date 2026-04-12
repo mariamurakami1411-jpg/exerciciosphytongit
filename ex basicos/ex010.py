@@ -1,0 +1,5 @@
+nome=str(input("Digite seu nome: ")).strip().upper()
+letras= len(nome)-nome.count(" ")
+nome.find("SILVA")
+print("SILVA" in nome)
+print(f"O nome {nome} tem um total de {letras} letras")

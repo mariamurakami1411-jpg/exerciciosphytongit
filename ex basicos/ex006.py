@@ -1,0 +1,7 @@
+invest=int(input("Digite o valor inicial do investimento em reais: "))
+entr=int(input("Digite o valor da entrada mensal de dinheiro na sua conta: "))
+mes=int(input("Digite a quantidade de meses:"))
+dalt=round((invest+(entr*mes))/5.5915, 3)
+dbai=round((invest+(entr*mes))/5.1249, 3)
+print(f"O rendimento em dólar em alta será de {dalt}")
+print(f"O rendimento em dólar em baixa será de {dbai}")
