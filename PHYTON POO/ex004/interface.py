@@ -13,7 +13,8 @@ else:
 while True:
     print("Aperte [1] para [bold white]cadastrar item[/]")
     print("Aperte [2] para [bold white]ver a lista de itens[/]")
-    print("Aperte [3] para [bold red]Sair[/]")
+    print("Aperte [3] para [bold white] comprar/remover item[/]")
+    print("Aperte [4] para [bold red] Sair[/]")
     opcao=int(input("Escolha uma opção:"))
     if opcao==1:
         print('-'*20)
@@ -29,6 +30,8 @@ while True:
         lerAquivo(arq)
         print()
     elif opcao==3:
+        comprar(arq)
+    elif opcao==4:
         print("Até logo!:hand:")
         break
     else: 
