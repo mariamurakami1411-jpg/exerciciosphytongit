@@ -1,3 +1,5 @@
+from rich import print
+from rich.table import Table
 import os
 os.chdir(r"C:\Users\55419\Desktop\Curso Phyton\exercicios phyton\PHYTON POO\ex004")
 
@@ -31,28 +33,15 @@ def lerAquivo(nome):
     else:
         print('PRODUTOS CADASTRADOS')
         linhas=a.readlines()
-        maior_nome=0
-        dados=[]
-       
+        tabela=Table(title='Tabela de Preços')
+        tabela.add_column('Nome')
+        tabela.add_column('Preço')
         for linha in linhas:
             if linha.strip()=='':
                 continue
             dado=linha.strip().split(';')
-            if len(dado)<2:
-                continue
-            dados.append(dado)
-
-            if len(dado[0])>maior_nome:
-                maior_nome=len(dado[0])
-
-            maior_nome=max(maior_nome,11)
-           
-        print('-'*50)
-        print(f'"{"No.":<9}{"Nome":<{maior_nome}}{"Preço":>9}')
-        print("-"*50)
-        for i, dado in enumerate(dados):
-            print(f'{i+1:<9}{dado[0]:<{maior_nome}}{dado[1]:>8}K')
-    
+            tabela.add_row(f"{dado[0]}", f"{dado[1]}Kr")
+        print(tabela)
     finally:
         a.close()
        
@@ -69,3 +58,28 @@ def cadastrar(arq, nome='desconhecido', preco=0 ):
         else:
             print(f'Novo registro cadastrado com sucesso!')
             a.close()
+
+def comprar(arq):
+    try:
+        a=open(arq, 'rt')
+    except:
+        print('Não foi possível abrir o arquivo.')
+    else:
+        nome=input('Digite o nome do produto que deseja comprar').upper()
+        linhas=a.readlines()
+        novas_linhas=[]
+        for linha in linhas:
+            if linha.strip()=='':
+                continue
+            if nome not in linha.upper():
+                novas_linhas.append(linha)
+        with open(arq, 'wt') as a:
+            a.writelines(novas_linhas)
+        print('Produto comprado/removido com sucesso!')
+                
+
+
+
+
+
+
