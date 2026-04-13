@@ -26,15 +26,19 @@ class Televisao:
         self.ligada=False
     
 
-    def estar_ligada(func):
-        def wrapper(self, *args, **kwargs):
+    def estar_ligada(func): # cria um decorator -> uma função que modifica o comportamento de outra função
+        def wrapper(self, *args, **kwargs): 
+           # Essa é uma função dentro de outra (função interna)
+           # ela vai substituir a original temporariamente e controlar o que acontece antes/depois dela
             if not self.ligada:
                 print('A Tv não está ligada')
-                return 
-            return func(self, *args,**kwargs)
-        return wrapper
+                return # Interrompe a execução da função original
+            return func(self, *args,**kwargs) # chama a função original e repassa as informações
+                                              # permite com que a função original volte a funcionar normalmente
+        return wrapper # substititui as informações da função original pelo a do wrapper
     
-    @estar_ligada
+    @estar_ligada # =
+    #aumentar_volume = estar_ligada(aumentar_volume)
     def mudar_canalcima(self):
 
         if self.canal < self.canal_max:
