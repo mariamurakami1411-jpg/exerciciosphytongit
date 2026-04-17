@@ -1,0 +1,32 @@
+# Alarme
+import time
+import datetime
+import pygame
+
+def set_alarm(alarm_time):
+    print(f"Alarm set for {set_alarm}")
+    sound_file = "alarm_sound.mp3"
+    is_running=True
+
+    while is_running == True:
+        current_time=datetime.datetime.now().strftime("%H:%M:%S")
+        print(current_time)
+
+        if current_time == set_alarm:
+            print( "WAKE WAKE")
+            
+            
+            pygame.mixer.init()
+            pygame.mixer.music.load(sound_file)
+            pygame.mixer.music.play()
+
+            while pygame.mixer.music.get_busy():
+                time.sleep(1)
+                is_running= False    
+
+if __name__=="__main__":
+    alarm_time = input("Enter the alarm time (HH:MM:SS): ")
+    set_alarm(alarm_time)
+    
+
+
