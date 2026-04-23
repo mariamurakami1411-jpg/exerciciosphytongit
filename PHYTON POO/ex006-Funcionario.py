@@ -15,7 +15,7 @@ class Funcionario():
     # Métodos de Instancia
     def receber_dados(self):
         self.nome=input('Nome: ').strip()
-        self.ano=int(input('Tempo na empres( em anos): '))
+        self.ano=int(input('Tempo na empresa( em anos): '))
         self.salario=int(input('Digite seu salario: '))
         return self.nome, self.ano, self.salario
     
